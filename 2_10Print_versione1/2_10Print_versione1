@@ -1,0 +1,43 @@
+int xx=-10;
+int yy=374;
+float controllo =0;
+void setup () {
+  size(640, 384);
+  background(#2141EA);
+}
+void draw () {
+
+  // random controllo
+  controllo = int(random(2));
+
+  // incremento di x
+  xx=xx+10;
+
+  // condizione da capo
+  if (controllo==1) {
+    disegna_linea_1(xx, yy);
+  }
+  if (controllo==0) {
+    disegna_linea_2(xx, yy);
+  }
+  if (xx>width) {
+    PImage p = get(0, 0, 640, 384);
+    background(#2141EA);
+    set(0, -10, p);
+    xx=-10;
+    //  yy=yy-10;
+  }
+  /// prova copia immagine ed incolla sopra
+}
+/// disegna linea sinistra destra
+void disegna_linea_1(int x, int y) {
+  translate(x, y);
+  stroke(255);
+  line(0, 0, 10, 10);
+}
+// disegna linea destra sinistra
+void disegna_linea_2(int x, int y) {
+  translate(x, y);
+  stroke(255);
+  line(10, 0, 0, 10);
+}
