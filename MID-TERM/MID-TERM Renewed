@@ -30,6 +30,9 @@
  * del, backspace      : clear screen
  * g                   : toogle. show grid
  * d                   : toogle. show module values
+ * r                   : start recording pdf
+ * e                   : stop recording pdf
+ * s                   : save frame
  */
 
 //import libraries tools
