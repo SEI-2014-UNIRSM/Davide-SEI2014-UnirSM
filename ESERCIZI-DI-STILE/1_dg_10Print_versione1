@@ -1,3 +1,15 @@
+// 10 print porting
+
+/**
+ *KEYS
+ *
+ * s                   : save png
+ * r                   : save animation
+ */
+
+import java.util.Calendar;
+
+
 int xx=-10;
 int yy=374;
 float controllo =0;
@@ -26,8 +38,13 @@ void draw () {
     set(0, -10, p);
     xx=-10;
     //  yy=yy-10;
+
+    //save frame for animation
+    if (key =='r' || key =='R') {
+      saveFrame("Animation01/anim-####.tga");
+      println(frameCount);
+    }
   }
-  /// prova copia immagine ed incolla sopra
 }
 /// disegna linea sinistra destra
 void disegna_linea_1(int x, int y) {
@@ -40,4 +57,14 @@ void disegna_linea_2(int x, int y) {
   translate(x, y);
   stroke(255);
   line(10, 0, 0, 10);
+}
+
+void keyReleased() {  
+  if (key == 's' || key == 'S') saveFrame(timestamp()+"_##.png");
+}
+
+// timestamp
+String timestamp() {
+  Calendar now = Calendar.getInstance();
+  return String.format("%1$ty%1$tm%1$td_%1$tH%1$tM%1$tS", now);
 }
